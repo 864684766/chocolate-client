@@ -4,7 +4,7 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-pnpmfileChecksum: sha256-7iukoeaoqyb7afioloV17fFbnQ8BbeRYUrwc05yL3Ig=
+pnpmfileChecksum: sha256-AF1t85LQ6S2UNnaNebluFs5XSGYQXXMdm2329N+h1Ho=
 
 importers:
 
@@ -38,6 +38,9 @@ importers:
         specifier: ^9.1.2
         version: 9.2.0(@types/react@19.2.7)(react@19.2.3)(redux@5.0.1)
     devDependencies:
+      '@types/node':
+        specifier: ^22.10.2
+        version: 22.19.3
       '@types/react':
         specifier: ^19.0.0
         version: 19.2.7
@@ -105,6 +108,9 @@ importers:
         specifier: ^9.1.2
         version: 9.2.0(@types/react@19.2.7)(react@19.2.3)(redux@5.0.1)
     devDependencies:
+      '@types/node':
+        specifier: ^22.10.2
+        version: 22.19.3
       '@types/react':
         specifier: ^19.0.0
         version: 19.2.7

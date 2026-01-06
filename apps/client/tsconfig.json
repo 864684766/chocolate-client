@@ -7,7 +7,7 @@
       "@/*": ["./src/*"],
       "@shared/*": ["../../packages/shared/src/*"]
     },
-    "types": ["react", "react-dom", "node"],
+    "typeRoots": ["./node_modules/@types", "../../node_modules/@types"],
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": false,
     "jsx": "react-jsx",
