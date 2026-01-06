@@ -1,0 +1,28 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist-tsc",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@shared/*": ["../../packages/shared/src/*"]
+    },
+    "types": ["react", "react-dom", "node"],
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": false,
+    "jsx": "react-jsx",
+    "noEmit": false
+  },
+  "include": ["src/**/*", "main/**/*", "preload/**/*"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "dist-electron",
+    "dist-tsc",
+    "**/*.config.js",
+    "**/*.config.mjs",
+    "electron-builder.config.js",
+    "vite.config.ts",
+    "vite.electron.config.ts"
+  ]
+}

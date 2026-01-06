@@ -1,0 +1,1 @@
+"use strict";const n=require("electron");function o(e,r){if(typeof e!="string")throw new Error(`Invalid parameter: ${r} must be a string`);return!0}async function t(e,...r){return o(e,"channel"),n.ipcRenderer.invoke(e,...r)}const i={getVersion:()=>t("app:getVersion"),getPlatform:()=>t("app:getPlatform")};n.contextBridge.exposeInMainWorld("electronAPI",i);
