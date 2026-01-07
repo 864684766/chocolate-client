@@ -5,9 +5,13 @@ node_modules
 
 # Build outputs
 dist
+dist-electron
 build
 out
 *.tsbuildinfo
+
+# Vite port file (generated at runtime)
+.vite-port
 
 # Electron
 *.exe

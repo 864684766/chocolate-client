@@ -32,6 +32,7 @@
     "**/release",
     "**/*.config.js",
     "**/*.config.mjs",
+    "**/*.cjs",
     "**/electron-builder.config.js",
     "**/vite.config.ts",
     "**/vite.electron.config.ts"

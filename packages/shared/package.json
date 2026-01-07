@@ -9,7 +9,9 @@
     ".": "./src/index.ts",
     "./components": "./src/components/index.ts",
     "./lib": "./src/lib/index.ts",
-    "./types": "./src/types/index.ts"
+    "./types": "./src/types/index.ts",
+    "./vite": "./src/vite/index.ts",
+    "./scripts/wait-for-vite.cjs": "./scripts/wait-for-vite.cjs"
   },
   "scripts": {
     "lint": "eslint . --ext ts,tsx",
@@ -19,11 +21,14 @@
     "clsx": "^2.1.1",
     "tailwind-merge": "^2.5.4"
   },
+  "peerDependencies": {
+    "vite": "^5.0.0 || ^6.0.0"
+  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.18.2",
     "@typescript-eslint/parser": "^8.18.2",
     "eslint": "^9.17.0",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "vite": "^6.4.1"
   }
 }
-

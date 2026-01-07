@@ -1,0 +1,11 @@
+# pnpm 配置文件
+# 用于配置 pnpm 包管理器的行为
+
+# 允许运行 preinstall 和 postinstall 脚本
+# 这对于 electron 等需要运行安装后脚本的包非常重要
+enable-pre-post-scripts=true
+
+# 不忽略任何脚本
+# 如果设置为 true，pnpm 会忽略所有包的脚本（包括 postinstall）
+# 设置为 false 确保 electron 的 postinstall 脚本能够运行
+ignore-scripts=false

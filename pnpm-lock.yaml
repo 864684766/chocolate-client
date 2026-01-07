@@ -181,6 +181,9 @@ importers:
       typescript:
         specifier: ^5.7.2
         version: 5.9.3
+      vite:
+        specifier: ^6.4.1
+        version: 6.4.1(@types/node@22.19.3)(jiti@1.21.7)
 
 packages:
 

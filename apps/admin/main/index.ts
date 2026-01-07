@@ -1,6 +1,7 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import fs from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,6 +15,37 @@ const __dirname = path.dirname(__filename);
 const APP_NAME = 'Chocolate Admin';
 // 开发模式标识
 const IS_DEV = process.env.NODE_ENV === 'development' || !app.isPackaged;
+
+/**
+ * 获取开发服务器端口
+ * 优先级：环境变量 > .vite-port 文件 > 默认值
+ * @returns {string} 开发服务器端口号
+ */
+function getDevPort(): string {
+  // 1. 优先使用环境变量
+  if (process.env.VITE_DEV_PORT) {
+    return process.env.VITE_DEV_PORT;
+  }
+
+  // 2. 尝试从 .vite-port 文件读取（Vite 插件写入的实际端口）
+  const portFile = path.join(__dirname, '../.vite-port');
+  if (fs.existsSync(portFile)) {
+    try {
+      const port = fs.readFileSync(portFile, 'utf-8').trim();
+      if (port) {
+        return port;
+      }
+    } catch (error) {
+      console.warn(`Failed to read port file: ${error}`);
+    }
+  }
+
+  // 3. 使用默认端口
+  return '5174';
+}
+
+// 开发服务器端口
+const DEV_PORT = getDevPort();
 
 /**
  * 创建主窗口
@@ -37,8 +69,8 @@ function createWindow(): BrowserWindow {
 
   // 开发模式下加载Vite开发服务器，生产模式下加载本地文件
   if (IS_DEV) {
-    mainWindow.loadURL('http://localhost:5174');
-    mainWindow.webContents.openDevTools();
+    mainWindow.loadURL(`http://localhost:${DEV_PORT}`);
+    // mainWindow.webContents.openDevTools();
   } else {
     mainWindow.loadFile(path.join(__dirname, '../dist/index.html'));
   }
@@ -94,4 +126,3 @@ app.whenReady().then(() => {
 });
 app.on('window-all-closed', onWindowAllClosed);
 app.on('activate', onActivate);
-
