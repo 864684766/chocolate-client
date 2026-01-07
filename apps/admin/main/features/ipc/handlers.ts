@@ -20,6 +20,7 @@ const IPC_CHANNELS = {
  */
 function registerVersionHandler(): void {
   ipcMain.handle(IPC_CHANNELS.APP_GET_VERSION, () => {
+    console.log('app.getVersion()', app.getVersion());
     return app.getVersion();
   });
 }
@@ -29,6 +30,7 @@ function registerVersionHandler(): void {
  */
 function registerPlatformHandler(): void {
   ipcMain.handle(IPC_CHANNELS.APP_GET_PLATFORM, () => {
+    console.log('process.platform', process.platform);
     return process.platform;
   });
 }
@@ -41,4 +43,3 @@ export function registerIpcHandlers(): void {
   registerVersionHandler();
   registerPlatformHandler();
 }
-
