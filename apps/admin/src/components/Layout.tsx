@@ -13,8 +13,8 @@ function Layout(): JSX.Element {
    * 测试 IPC 通信 - 获取应用版本
    */
   const handleGetVersion = async (): Promise<void> => {
-    if (window.electronAPI) {
-      const v = await window.electronAPI.getVersion();
+    if (window.electronAPI?.app) {
+      const v = await window.electronAPI.app.getVersion();
       setVersion(v);
       console.log('渲染进程收到版本:', v);
     }
@@ -24,8 +24,8 @@ function Layout(): JSX.Element {
    * 测试 IPC 通信 - 获取平台信息
    */
   const handleGetPlatform = async (): Promise<void> => {
-    if (window.electronAPI) {
-      const p = await window.electronAPI.getPlatform();
+    if (window.electronAPI?.app) {
+      const p = await window.electronAPI.app.getPlatform();
       setPlatform(p);
       console.log('渲染进程收到平台:', p);
     }
